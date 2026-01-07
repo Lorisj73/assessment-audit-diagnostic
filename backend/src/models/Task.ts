@@ -26,4 +26,6 @@ export interface TaskUpdateStatusDto {
 export interface TaskFilters {
   status?: TaskStatus;
   search?: string;
+  limit?: number;
+  offset?: number;
 }

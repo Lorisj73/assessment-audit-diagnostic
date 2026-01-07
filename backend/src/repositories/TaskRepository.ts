@@ -21,6 +21,12 @@ export class TaskRepository {
 
     query += " ORDER BY created_at DESC";
 
+    // Pagination: limit par défaut à 100 tâches
+    const limit = filters?.limit || 100;
+    const offset = filters?.offset || 0;
+    query += ` LIMIT $${paramIndex} OFFSET $${paramIndex + 1}`;
+    params.push(limit, offset);
+
     const result = await pool.query(query, params);
     return result.rows;
   }

@@ -9,7 +9,7 @@ const pool = new Pool({
   database: process.env.DB_NAME || process.env.DATABASE_NAME || "taskwatch",
   user: process.env.DB_USER || process.env.DATABASE_USER || "postgres",
   password: process.env.DB_PASSWORD || process.env.DATABASE_PASSWORD || "postgres",
-  max: 20,
+  max: 50,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 2000,
 });

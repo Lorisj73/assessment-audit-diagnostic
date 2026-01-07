@@ -5,7 +5,7 @@ export class AuthService {
   async login(email: string, password: string): Promise<{ user: any } | null> {
     console.log(`Login attempt for ${email}`);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 200));
 
     const user = await userRepository.findByEmail(email);
 

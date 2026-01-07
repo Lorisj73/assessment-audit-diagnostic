@@ -53,5 +53,25 @@ services:
     environment:
       VITE_API_URL: http://localhost:3000
 
+  # Service Grafana pour le monitoring
+  grafana:
+    image: grafana/grafana:latest
+    container_name: taskwatch-grafana
+    ports:
+      - "3001:3000"
+    depends_on:
+      - postgres
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    restart: unless-stopped
+
+networks:
+  taskwatch-network:
+    driver: bridge
+
 volumes:
   postgres_data:
+  grafana-storage:
